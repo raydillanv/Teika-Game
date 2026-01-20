@@ -509,6 +509,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3644217189337715330, guid: bd4faabb788e64a8795aedbbffb5e19c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d78f0b7ccdfcd4456b5b970d040e65e6, type: 2}
+    - target: {fileID: 3644217189337715330, guid: bd4faabb788e64a8795aedbbffb5e19c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4989171565376863580, guid: bd4faabb788e64a8795aedbbffb5e19c, type: 3}
       propertyPath: m_Name
       value: ballTennis
@@ -1012,6 +1020,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3401118242071513135, guid: ec3b80cb22e674252857e760199e7639, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d78f0b7ccdfcd4456b5b970d040e65e6, type: 2}
+    - target: {fileID: 3401118242071513135, guid: ec3b80cb22e674252857e760199e7639, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6385249016432207857, guid: ec3b80cb22e674252857e760199e7639, type: 3}
       propertyPath: m_Name
       value: ballBaseball
@@ -1029,6 +1045,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 514426407464970899, guid: c326787d0b98a4804943f889a2af753c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d78f0b7ccdfcd4456b5b970d040e65e6, type: 2}
+    - target: {fileID: 514426407464970899, guid: c326787d0b98a4804943f889a2af753c, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4043674599533556678, guid: c326787d0b98a4804943f889a2af753c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.26
@@ -1404,6 +1428,14 @@ PrefabInstance:
     - target: {fileID: 3641548251500235659, guid: f2f35b1447f724434966e32ad8ce6643, type: 3}
       propertyPath: m_Name
       value: ballPin
+      objectReference: {fileID: 0}
+    - target: {fileID: 4982852506599122005, guid: f2f35b1447f724434966e32ad8ce6643, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d78f0b7ccdfcd4456b5b970d040e65e6, type: 2}
+    - target: {fileID: 4982852506599122005, guid: f2f35b1447f724434966e32ad8ce6643, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8798693901737229568, guid: f2f35b1447f724434966e32ad8ce6643, type: 3}
       propertyPath: m_LocalPosition.x
