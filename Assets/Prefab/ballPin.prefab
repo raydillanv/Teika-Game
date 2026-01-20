@@ -8,9 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3885664334347900500, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+      propertyPath: m_Radius
+      value: 0.502138
+      objectReference: {fileID: 0}
+    - target: {fileID: -3885664334347900500, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.00000029802322
+      objectReference: {fileID: 0}
     - target: {fileID: 3059637206090142034, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_Name
-      value: ballFootball Variant
+      value: ballPin
       objectReference: {fileID: 0}
     - target: {fileID: 3390130872937932387, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_Sprite
@@ -18,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 776441406669790763, guid: c8860724674944963bfac6e17c0f5091, type: 3}
     - target: {fileID: 7125924410866722777, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2636433
       objectReference: {fileID: 0}
     - target: {fileID: 7125924410866722777, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 7125924410866722777, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56,8 +64,80 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8057728622897432586, guid: 3f99f13b423da499590866775608d2d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3059637206090142034, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6388239461614596693}
   m_SourcePrefab: {fileID: 100100000, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+--- !u!1 &3641548251500235659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3059637206090142034, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+  m_PrefabInstance: {fileID: 1801267241607469785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &6388239461614596693
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641548251500235659}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.97999996, y: 1.0999999}
+    newSize: {x: 2.18, y: 3.02}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.15500003, y: 0.56}
+      - {x: -0.12999995, y: 0.56}
+      - {x: -0.30999994, y: 0.365}
+      - {x: -0.22244847, y: 0.15892856}
+      - {x: -0.39331093, y: 0.04192128}
+      - {x: -0.48999992, y: -0.069999956}
+      - {x: -0.48999992, y: -0.26499993}
+      - {x: -0.29443365, y: -0.41485855}
+      - {x: -0.14499995, y: -0.5499999}
+      - {x: 0.17000002, y: -0.5499999}
+      - {x: 0.28404355, y: -0.39268398}
+      - {x: 0.4621462, y: -0.30271226}
+      - {x: 0.4956629, y: -0.17187937}
+      - {x: 0.41672158, y: 0.034716904}
+      - {x: 0.2586796, y: 0.1539029}
+      - {x: 0.25214592, y: 0.4091508}
+  m_UseDelaunayMesh: 1
