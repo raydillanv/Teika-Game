@@ -12,17 +12,43 @@ public class PlayerBehavior : MonoBehaviour
 
     public float OffY = -0.6f;
     public float OffX = 0.5f;
+    
+    //Custom logic for changing the sprite of the scientist while dropping
+    public SpriteRenderer spriteRenderer;
+    //Sprite of scientist showing arm dropping item
+    public Sprite droppingSprite;
+    //Base scientist sprite of the scientist not doing anything
+    public Sprite BaseSprite;
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spriteRenderer =  GetComponent<SpriteRenderer>();
+        BaseSprite = spriteRenderer.sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Custom logic for setting sprite of scientist to droppingSprite
+        if (Keyboard.current.spaceKey.isPressed)
+        {
+            if (droppingSprite != null)
+            {
+                spriteRenderer.sprite = droppingSprite;
+            }
+
+        }
+        if (!Keyboard.current.spaceKey.isPressed)
+        {
+            if (BaseSprite != null)
+            {
+                spriteRenderer.sprite = BaseSprite; 
+            }
+
+        }
+        
         //If we are holding something put in player's hand
         if(CurrentHeldObject != null){
             //current player position
