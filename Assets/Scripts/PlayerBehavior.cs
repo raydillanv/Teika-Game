@@ -1,12 +1,29 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Merging logic
+//bowling pin -> tennis ball -> baseball - > 8 ball -> hockey puck -> 
+//basket ball - > soccer ball -> ball star -> bowling ball, football, Toxic waste?
+
+//Logic needed 
+//A list of each of the prefabs and variants
+//instantiate and drop a random one in the list... or array
+//Check if they are colliding with another prefab
+//if they are another of the same type then merge them
+//instantiate new one destroy old one
+
+//Difficulty scaling? 
+//You would need to track what the last prefab instantiated was
+//if you are in late game make it a small percentage to drop one of the same type?
+//Increase speed
+//Drop automatically within a certain time , time goes lower while playing
+
 public class PlayerBehavior : MonoBehaviour
 {
     //Determine hoe fast the player moves
     public float speed;
     //Object in player's hands
-    public GameObject HeldObject;
+    //public GameObject HeldObject;
     //Current prefab of the object
     private GameObject CurrentHeldObject;
 
@@ -20,17 +37,30 @@ public class PlayerBehavior : MonoBehaviour
     //Base scientist sprite of the scientist not doing anything
     public Sprite BaseSprite;
 
+    public GameObject[] heldObjects;
+
+    //public int[] numbers;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Gets sprite renderer from component, sets base sprite as the original sprite on the sprite renderer
         spriteRenderer =  GetComponent<SpriteRenderer>();
         BaseSprite = spriteRenderer.sprite;
+        
+        //Use case of array
+        //for (int i = 0; i < numbers.Length; i++)
+        //{
+        //    print(numbers[i]);
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        
         // Custom logic for setting sprite of scientist to droppingSprite
         if (Keyboard.current.spaceKey.isPressed)
         {
@@ -52,14 +82,15 @@ public class PlayerBehavior : MonoBehaviour
         //If we are holding something put in player's hand
         if(CurrentHeldObject != null){
             //current player position
-            //Only need transform.posiiton
+            //Only need transform.position
             Vector3 playerPos = transform.position;
             Vector3 ObjectOffset = new Vector3(OffX, OffY, 0.0f);
             CurrentHeldObject.transform.position  = playerPos + ObjectOffset;
         }
         else
         {
-            CurrentHeldObject = Instantiate(HeldObject, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+            int choice = Random.Range(0, heldObjects.Length);
+            CurrentHeldObject = Instantiate(heldObjects[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         //Drop item
         if (Keyboard.current.spaceKey.wasPressedThisFrame){
