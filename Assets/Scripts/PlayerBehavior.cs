@@ -57,12 +57,14 @@ public class PlayerBehavior : MonoBehaviour
         //{
         //    print(numbers[i]);
         //}
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        float currentTime = Time.time;
+        //print(currentTime);
         
         // Custom logic for setting sprite of scientist to droppingSprite
         if (Keyboard.current.spaceKey.isPressed)
@@ -124,6 +126,9 @@ public class PlayerBehavior : MonoBehaviour
             //Debug.Log("Right arrow OR D Key was pressed.");
             offset = speed;
         } 
+        
+        //Better way of doing this is with a collider and an on trigger collider instead of hardcoded min and max values
+        
         Vector3 newPos = transform.position;
         newPos.x = newPos.x + offset;
 
