@@ -29,6 +29,9 @@ public class PlayerBehavior : MonoBehaviour
 
     public float OffY = -0.6f;
     public float OffX = 0.5f;
+
+    public float min;
+    public float max;
     
     //Custom logic for changing the sprite of the scientist while dropping
     public SpriteRenderer spriteRenderer;
@@ -111,17 +114,31 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         //Keyboard movement of player
+        float offset = 0.0f;
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed){
             //Debug.Log("Left arrow  OR A key was pressed.");
-            Vector3 newPos = transform.position;
-            newPos.x -= speed;
-            transform.position = newPos;
+            offset -= speed;
+            
 
         } else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed){
             //Debug.Log("Right arrow OR D Key was pressed.");
-            Vector3 newPos = transform.position;
-            newPos.x += speed;
-            transform.position = newPos;
+            offset = speed;
         } 
+        Vector3 newPos = transform.position;
+        newPos.x = newPos.x + offset;
+
+        //Checks if player is trying to go past max X
+        if (newPos.x > max)
+        {
+            newPos.x = max;
+        }
+        //Checks if player is trying to go past min X
+        if (newPos.x < min)
+        {
+            newPos.x = min;
+        }
+        
+        transform.position = newPos;
+        
     }
 }
