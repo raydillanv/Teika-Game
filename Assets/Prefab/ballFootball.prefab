@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3390130872937932387}
   - component: {fileID: -2460716956793241972}
   - component: {fileID: -8057728622897432586}
+  - component: {fileID: 6023431833727920720}
   m_Layer: 0
   m_Name: ballFootball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,3 +202,20 @@ PolygonCollider2D:
       - {x: 0.32999998, y: -1.38}
       - {x: 0.66999996, y: -1.05}
   m_UseDelaunayMesh: 1
+--- !u!114 &6023431833727920720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059637206090142034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72aba2140baf846a098d6fb4b3a8d7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SportBehavior
+  timeout: 5
+  timeStart: 0
+  timeThusFar: 0
+  gameOver: {fileID: 0}
+  GameOver: 0
