@@ -15,10 +15,8 @@ public class TopBorderBehavior : MonoBehaviour
     void Start()
     {
         timeStart = Time.time;
-        if (player == null)
+        if (player == null) // Check to auto set the reference because we only have one player.
             player = FindObjectOfType<PlayerBehavior>();
-            
-            
     }
 
     // Update is called once per frame
@@ -30,7 +28,7 @@ public class TopBorderBehavior : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         string tag =  collision.gameObject.tag;
-        //Debug.Log("You Entered the trigget ofL " + collision.gameObject.tag);
+        //Debug.Log("You Entered the trigger ofL " + collision.gameObject.tag);
         if (tag.Equals("Ball"))
         {
             //Debug.Log("Game Over Timer Started at: " + timeStart);
