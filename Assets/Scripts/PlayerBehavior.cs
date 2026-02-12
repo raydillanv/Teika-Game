@@ -41,6 +41,8 @@ public class PlayerBehavior : MonoBehaviour
     public Sprite BaseSprite;
 
     public GameObject[] heldObjects;
+    
+    public bool isGameOver = false; //Bool that is set by TopBorderBehavior through a reference to the player.
 
     //public int[] numbers;
     
@@ -63,7 +65,9 @@ public class PlayerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentTime = Time.time;
+        if (!isGameOver) // If the game is over then we do no checking for player movement etc. 
+        {
+                   float currentTime = Time.time;
         //print(currentTime);
         
         // Custom logic for setting sprite of scientist to droppingSprite
@@ -144,6 +148,8 @@ public class PlayerBehavior : MonoBehaviour
         }
         
         transform.position = newPos;
-        
+         
+        }
+
     }
 }
