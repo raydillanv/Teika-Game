@@ -20,8 +20,8 @@ public class SportBehavior : MonoBehaviour
      {
          timeStart = Time.time;
          Balls = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().heldObjects; 
-         //mergeSource = GameObject.FindGameObjectWithTag("Player").
-             //GetComponents<AudioSource>()[0];
+         mergeSource = GameObject.FindGameObjectWithTag("Player").
+             GetComponents<AudioSource>()[0];
      }
     //
     // // Update is called once per frame
@@ -48,7 +48,7 @@ public class SportBehavior : MonoBehaviour
                     currentBall.GetComponent<Collider2D>().enabled = true;
                     currentBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                     
-                    //mergeSource.Play();
+                    mergeSource.Play();
                     
                     GameObject.FindGameObjectWithTag("Player").
                         GetComponent<PlayerBehavior>().updateScore(BallType);

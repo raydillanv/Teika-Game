@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.PlayerLoop;
+
 // Merging logic
 //bowling pin -> tennis ball -> baseball - > 8 ball -> hockey puck -> 
 //basket ball - > soccer ball -> ball star -> bowling ball, football, Toxic waste?
@@ -68,7 +70,7 @@ public class PlayerBehavior : MonoBehaviour
         //}
         
         total = 0;
-        //dropSource = gameObject.GetComponents<AudioSource>()[1];
+        dropSource = gameObject.GetComponents<AudioSource>()[1];
 
     }
 
@@ -125,6 +127,9 @@ public class PlayerBehavior : MonoBehaviour
                 collider.enabled = true;
 
                 CurrentHeldObject = null;
+                
+                //PLay our drop sound which is attached to the second audio source attached to hte player at Index [1]
+                dropSource.Play();
             }
 
         }
@@ -134,11 +139,13 @@ public class PlayerBehavior : MonoBehaviour
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed){
             //Debug.Log("Left arrow  OR A key was pressed.");
             offset -= speed;
+            Debug.Log(offset);
             
 
         } else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed){
             //Debug.Log("Right arrow OR D Key was pressed.");
             offset = speed;
+            Debug.Log(offset);
         } 
         
         //Better way of doing this is with a collider and an on trigger collider instead of hardcoded min and max values
