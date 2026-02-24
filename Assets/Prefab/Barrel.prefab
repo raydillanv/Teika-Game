@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5391740964841791282, guid: a782588b8b6994a32a0651f9ce212de0, type: 3}
+    - target: {fileID: 6023431833727920720, guid: 3f99f13b423da499590866775608d2d5, type: 3}
+      propertyPath: BallType
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7125924410866722777, guid: 3f99f13b423da499590866775608d2d5, type: 3}
       propertyPath: m_LocalScale.x
       value: 2

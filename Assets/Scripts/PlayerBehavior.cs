@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using TMPro;
 // Merging logic
 //bowling pin -> tennis ball -> baseball - > 8 ball -> hockey puck -> 
 //basket ball - > soccer ball -> ball star -> bowling ball, football, Toxic waste?
@@ -46,6 +46,12 @@ public class PlayerBehavior : MonoBehaviour
 
     //public int[] numbers;
     
+    public AudioSource dropSource;
+    
+    public int[] points;
+    public int total;
+    public TMP_Text textField;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,11 +60,15 @@ public class PlayerBehavior : MonoBehaviour
         spriteRenderer =  GetComponent<SpriteRenderer>();
         BaseSprite = spriteRenderer.sprite;
         
+        
         //Use case of array
         //for (int i = 0; i < numbers.Length; i++)
         //{
         //    print(numbers[i]);
         //}
+        
+        total = 0;
+        //dropSource = gameObject.GetComponents<AudioSource>()[1];
 
     }
 
@@ -152,4 +162,10 @@ public class PlayerBehavior : MonoBehaviour
         }
 
     }
+    
+    public void updateScore(int index) {
+        total = total + points[index];
+        textField.SetText("Score: " + total);
+    }
+    
 }

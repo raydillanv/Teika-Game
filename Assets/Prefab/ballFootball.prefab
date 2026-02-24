@@ -219,3 +219,5 @@ MonoBehaviour:
   timeThusFar: 0
   gameOver: {fileID: 2313554932380755056, guid: 63c911cc1ecc44c3e8be57b20695621a, type: 3}
   GameOver: 0
+  Balls: []
+  BallType: 9

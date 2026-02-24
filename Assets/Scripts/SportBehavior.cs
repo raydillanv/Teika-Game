@@ -8,12 +8,21 @@ public class SportBehavior : MonoBehaviour
     public float timeThusFar;
     public GameObject gameOver;
     public bool GameOver = false;
+
+    public GameObject[] Balls;
+
+    public int BallType;
+    
+    private AudioSource mergeSource;
     //
     // // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-    //     timeStart = Time.time;
-    // }
+     void Start()
+     {
+         timeStart = Time.time;
+         Balls = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehavior>().heldObjects; 
+         //mergeSource = GameObject.FindGameObjectWithTag("Player").
+             //GetComponents<AudioSource>()[0];
+     }
     //
     // // Update is called once per frame
     // void Update()
@@ -21,37 +30,34 @@ public class SportBehavior : MonoBehaviour
     //     
     // }
     //
-    // public void OnTriggerEnter2D(Collider2D collision)
-    // {
-    //     string tag =  collision.gameObject.tag;
-    //     //Debug.Log("You Entered the trigget ofL " + collision.gameObject.tag);
-    //     if (tag.Equals("Top"))
-    //     {
-    //         //Debug.Log("Game Over Timer Started at: " + timeStart);
-    //         timeStart = Time.time;
-    //     }
-    //     
-    // }
-    //
-    // public void OnTriggerStay2D(Collider2D collision)
-    // {
-    //     if (!GameOver)
-    //     {
-    //         string tag =  collision.gameObject.tag;
-    //         //Debug.Log("Trigger Stay on: " + collision.gameObject.tag);
-    //         if (tag.Equals("Top"))
-    //         {
-    //             timeThusFar = Time.time - timeStart;
-    //             //Debug.Log("Game over Timer Updated: " + timeThusFar);
-    //             if (timeThusFar >= timeout)
-    //             {
-    //                 //Debug.Log("Game Over");
-    //                 GameOver = true;
-    //                 //Instantiate(gameOver, transform.position, transform.rotation);
-    //             } 
-    //         }
-    //     }
-    //
-    //
-    // }
+   
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Ball")) {
+            int otherType = other.gameObject.GetComponent<SportBehavior>().BallType;
+            if (otherType == BallType && BallType < Balls.Length-1) {
+                if (gameObject.transform.position.x < other.transform.position.x
+                    || (gameObject.transform.position.x == other.transform.position.x 
+                        && gameObject.transform.position.y >= other.transform.position.y)) {
+                    
+                    
+                    // Create the merged one
+                    int choice = BallType + 1;
+                    GameObject currentBall = Instantiate(Balls[choice], 
+                        Vector3.Lerp(gameObject.transform.position,other.gameObject.transform.position, 0.5f), 
+                        Quaternion.identity);
+                    currentBall.GetComponent<Collider2D>().enabled = true;
+                    currentBall.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                    
+                    //mergeSource.Play();
+                    
+                    GameObject.FindGameObjectWithTag("Player").
+                        GetComponent<PlayerBehavior>().updateScore(BallType);
+                    
+                    // Destroy both things (Balls)
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
 }
