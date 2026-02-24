@@ -28,6 +28,7 @@ public class PlayerBehavior : MonoBehaviour
     //public GameObject HeldObject;
     //Current prefab of the object
     private GameObject CurrentHeldObject;
+    
 
     public float OffY = -0.6f;
     public float OffX = 0.5f;
@@ -110,7 +111,10 @@ public class PlayerBehavior : MonoBehaviour
         }
         else
         {
-            int choice = Random.Range(0, heldObjects.Length);
+            
+            //The player is asking the queue manager what the next number is...
+            int choice = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>().updateQueue();
+            //int choice = Random.Range(0, heldObjects.Length);
             CurrentHeldObject = Instantiate(heldObjects[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
         //Drop item
@@ -139,13 +143,13 @@ public class PlayerBehavior : MonoBehaviour
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed){
             //Debug.Log("Left arrow  OR A key was pressed.");
             offset -= speed;
-            Debug.Log(offset);
+            //Debug.Log(offset);
             
 
         } else if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed){
             //Debug.Log("Right arrow OR D Key was pressed.");
             offset = speed;
-            Debug.Log(offset);
+            //Debug.Log(offset);
         } 
         
         //Better way of doing this is with a collider and an on trigger collider instead of hardcoded min and max values
