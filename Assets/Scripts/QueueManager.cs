@@ -6,6 +6,8 @@ public class QueueManager : MonoBehaviour
     public int[] queue;
     private SpriteRenderer[] childRenderers;
     
+    public int maxQueueId;
+    
     /// <summary>
     /// Using a Queue. Showing the next 4 balls that will drop. 
     /// 0 (the next ball), 2 (the second to next ball), 3 (etc.), 4
@@ -48,7 +50,7 @@ public class QueueManager : MonoBehaviour
             queue [ i - 1 ] =  queue[i];
         }
         
-        queue[3] = Random.Range(0, 4);
+        queue[3] = Random.Range(0, maxQueueId);
 
         return currentType;
     }

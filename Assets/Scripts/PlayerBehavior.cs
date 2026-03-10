@@ -29,6 +29,7 @@ public class PlayerBehavior : MonoBehaviour
     //Current prefab of the object
     private GameObject CurrentHeldObject;
     
+    private QueueManager Queue;
 
     public float OffY = -0.6f;
     public float OffX = 0.5f;
@@ -73,6 +74,8 @@ public class PlayerBehavior : MonoBehaviour
         total = 0;
         dropSource = gameObject.GetComponents<AudioSource>()[1];
 
+        Queue = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>();
+
     }
 
     // Update is called once per frame
@@ -113,7 +116,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             
             //The player is asking the queue manager what the next number is...
-            int choice = GameObject.FindGameObjectWithTag("Queue").GetComponent<QueueManager>().updateQueue();
+            int choice = Queue.updateQueue();
             //int choice = Random.Range(0, heldObjects.Length);
             CurrentHeldObject = Instantiate(heldObjects[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
