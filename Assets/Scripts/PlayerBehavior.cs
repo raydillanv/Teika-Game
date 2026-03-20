@@ -55,11 +55,16 @@ public class PlayerBehavior : MonoBehaviour
     public int[] points;
     public int total;
     public TMP_Text textField;
+
+    ScoreTracker STRef;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //Because ScoreTracker may be a do not destroy object, we will want to find it instead of setting it
+        STRef = GameObject.FindWithTag("ScoreTracker").GetComponent<ScoreTracker>();
+
         //Gets sprite renderer from component, sets base sprite as the original sprite on the sprite renderer
         spriteRenderer =  GetComponent<SpriteRenderer>();
         BaseSprite = spriteRenderer.sprite;
@@ -180,6 +185,7 @@ public class PlayerBehavior : MonoBehaviour
     public void updateScore(int index) {
         total = total + points[index];
         textField.SetText("Score: " + total);
+        STRef.UpdateScoreTracker(total);
     }
     
 }

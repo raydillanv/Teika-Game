@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Top
   - Queue
+  - ScoreTracker
+  - HighScoreText
   layers:
   - Default
   - TransparentFX
