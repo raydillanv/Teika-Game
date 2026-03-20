@@ -645,14 +645,12 @@ RectTransform:
   m_Children:
   - {fileID: 1695427174}
   - {fileID: 1427488012}
-  - {fileID: 1553446891}
   - {fileID: 1622256805}
   - {fileID: 838594202}
-  - {fileID: 228385779}
   - {fileID: 355709750}
   - {fileID: 992554088}
   - {fileID: 148618222}
-  - {fileID: 2140575639}
+  - {fileID: 871161809}
   m_Father: {fileID: 3670672824549123372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -851,16 +849,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228385778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.495, y: 1.495, z: 1.495}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 175295615}
+  m_Father: {fileID: 871161809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 261.8, y: -77.4}
+  m_AnchoredPosition: {x: 0.9999695, y: 56.299995}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228385780
@@ -2540,6 +2538,44 @@ MonoBehaviour:
   - {fileID: -3350483324277512256, guid: e8d96559cfdba4a4d90d25b689a0b4b6, type: 3}
   queue: 
   maxQueueId: 8
+--- !u!1 &871161808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871161809}
+  m_Layer: 0
+  m_Name: Music Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &871161809
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871161808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1553446891}
+  - {fileID: 228385779}
+  - {fileID: 2140575639}
+  m_Father: {fileID: 175295615}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 260.8, y: -133.7}
+  m_SizeDelta: {x: 160, y: 20}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &989346022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2762688506480356891, guid: 25c475496a79647a1bac407ca7363e29, type: 3}
@@ -3137,6 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6ee26b993199f448f819436bce4d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusicController
+  Source: {fileID: 1157797445}
   Slider: {fileID: 2140575640}
 --- !u!4 &1179347314 stripped
 Transform:
@@ -3616,6 +3653,7 @@ GameObject:
   - component: {fileID: 1553446894}
   - component: {fileID: 1553446893}
   - component: {fileID: 1553446892}
+  - component: {fileID: 1553446895}
   m_Layer: 0
   m_Name: Mute Button
   m_TagString: Untagged
@@ -3630,17 +3668,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553446890}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1731893102}
-  m_Father: {fileID: 175295615}
+  m_Father: {fileID: 871161809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260.8, y: -174.1}
+  m_AnchoredPosition: {x: 0, y: -40.40001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553446892
@@ -3686,19 +3724,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1553446893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1157797447}
-        m_TargetAssemblyTypeName: MusicController, Assembly-CSharp
-        m_MethodName: ToggleMute
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1553446893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3737,6 +3763,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553446890}
   m_CullTransparentMesh: 1
+--- !u!114 &1553446895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553446890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef00f743a30dcbf4f83d5e5ea8a5a988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MuteButton
 --- !u!1001 &1613851586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5015,6 +5053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2140575639}
   - component: {fileID: 2140575640}
+  - component: {fileID: 2140575641}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -5029,7 +5068,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140575638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5037,11 +5076,11 @@ RectTransform:
   - {fileID: 80291062}
   - {fileID: 376118136}
   - {fileID: 81788782}
-  m_Father: {fileID: 175295615}
+  m_Father: {fileID: 871161809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260.8, y: -133.7}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140575640
@@ -5107,6 +5146,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2140575641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140575638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eb62544da48304a9441ed132f190f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VolumeSlider
 --- !u!1001 &2142808887
 PrefabInstance:
   m_ObjectHideFlags: 0

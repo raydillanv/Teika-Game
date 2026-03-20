@@ -5,7 +5,7 @@ public class MusicController : MonoBehaviour
 
 {
     public static MusicController Instance { get; private set; }
-    AudioSource Source;
+    public AudioSource Source;
     public Slider Slider;
     bool Muted = false;
 
@@ -24,7 +24,6 @@ public class MusicController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Source = GetComponent<AudioSource>();
         Slider.value = Mathf.Sqrt(Source.volume);
     }
 
