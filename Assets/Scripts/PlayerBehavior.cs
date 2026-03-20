@@ -57,8 +57,12 @@ public class PlayerBehavior : MonoBehaviour
     public TMP_Text textField;
 
     ScoreTracker STRef;
-    
-    
+
+    // variables for adding a cool down to dropping
+    private float lastDropTime = -1f;
+    public float dropCooldown = 0.25f;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -125,29 +129,30 @@ public class PlayerBehavior : MonoBehaviour
             //int choice = Random.Range(0, heldObjects.Length);
             CurrentHeldObject = Instantiate(heldObjects[choice], new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
         }
-        //Drop item
-        if (Keyboard.current.spaceKey.wasPressedThisFrame){
-            //if holding something drop it...
-            if (CurrentHeldObject != null)
+            //Drop item
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                Rigidbody2D body = CurrentHeldObject.GetComponent<Rigidbody2D>();
+                if (Time.time - lastDropTime >= dropCooldown)
+                {
+                    if (CurrentHeldObject != null)
+                    {
+                        Rigidbody2D body = CurrentHeldObject.GetComponent<Rigidbody2D>();
+                        body.gravityScale = 1.0f;
 
-                body.gravityScale = 1.0f;
+                        Collider2D collider = CurrentHeldObject.GetComponent<Collider2D>();
+                        collider.enabled = true;
 
-                Collider2D collider = CurrentHeldObject.GetComponent<Collider2D>();
-            
-                collider.enabled = true;
+                        CurrentHeldObject = null;
 
-                CurrentHeldObject = null;
-                
-                //PLay our drop sound which is attached to the second audio source attached to hte player at Index [1]
-                dropSource.Play();
+                        lastDropTime = Time.time;
+
+                        dropSource.Play();
+                    }
+                }
             }
 
-        }
-        
-        //Keyboard movement of player
-        float offset = 0.0f;
+            //Keyboard movement of player
+            float offset = 0.0f;
         if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed){
             //Debug.Log("Left arrow  OR A key was pressed.");
             offset -= speed;

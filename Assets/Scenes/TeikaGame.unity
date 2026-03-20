@@ -733,9 +733,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884ed10080d434d079a1955b29355f2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TopBorderBehavior1
-  timeout: 2
+  timeout: 3
   gameOver: {fileID: 133951152}
-  player: {fileID: 0}
+  player: {fileID: 2012966076}
 --- !u!224 &246500982 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3801389812624596258, guid: 95bfa323adf7b694ebc903c986baa4bd, type: 3}
@@ -4222,6 +4222,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2012966076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3259364852278176034, guid: a70904760d6e14b58b60c076217da19c, type: 3}
+  m_PrefabInstance: {fileID: 3503002919729551668}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299830771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfff57e99b044f7fbdf2307faed78b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBehavior
 --- !u!1 &2017271130
 GameObject:
   m_ObjectHideFlags: 0
@@ -4798,6 +4809,10 @@ PrefabInstance:
       propertyPath: BaseSprite
       value: 
       objectReference: {fileID: 4547888686988466022, guid: c19f570da06cf4b5e9a8d0fe9f94bc3c, type: 3}
+    - target: {fileID: 3259364852278176034, guid: a70904760d6e14b58b60c076217da19c, type: 3}
+      propertyPath: dropCooldown
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3259364852278176034, guid: a70904760d6e14b58b60c076217da19c, type: 3}
       propertyPath: droppingSprite
       value: 
