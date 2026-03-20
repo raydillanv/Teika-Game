@@ -7,6 +7,10 @@ public class ScoreTracker : MonoBehaviour
     public static ScoreTracker Instance { get; private set; }
     public int previousScore = 0;
     private int currentScore = 0;
+
+    //Adding tracking of high score across sessions as long as you dont clear cache on browser
+    private const string HIGH_SCORE_KEY = "HighScore";
+
     private TMP_Text highScoreField;
 
     void Awake()
@@ -19,6 +23,10 @@ public class ScoreTracker : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // Load the cache
+        previousScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY, 0);
+
         SceneManager.sceneLoaded += OnSceneLoaded; // here we are starting an event
     }
 
@@ -49,6 +57,10 @@ public class ScoreTracker : MonoBehaviour
             previousScore = currentScore;
             print("New high score: " + previousScore);
             highScoreField.text = "High Score: " + previousScore;
+
+            // save the new high score
+            PlayerPrefs.SetInt(HIGH_SCORE_KEY, previousScore);
+            PlayerPrefs.Save(); // saving to the browser cache
         }
     }
 
