@@ -10,7 +10,10 @@ public class TopBorderBehavior : MonoBehaviour
     //public bool isGameOver = false;
     
     public PlayerBehavior player;
-    
+
+    // adding a check to fix the bug where the timeout resets every time a new one enters the collider
+    private int ballsInZone = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,35 +30,46 @@ public class TopBorderBehavior : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        string tag =  collision.gameObject.tag;
-        //Debug.Log("You Entered the trigger ofL " + collision.gameObject.tag);
-        if (tag.Equals("Ball"))
+        if (collision.gameObject.tag.Equals("Ball"))
         {
-            //Debug.Log("Game Over Timer Started at: " + timeStart);
-            timeStart = Time.time;
+            ballsInZone++;
+            if (ballsInZone == 1) // First ball to enter starts the clock
+            {
+                timeStart = Time.time;
+                Debug.Log("Game Over Timer Started at: " + timeStart);
+            }
         }
-        
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (!player.isGameOver)
         {
-            string tag =  collision.gameObject.tag;
-            //Debug.Log("Trigger Stay on: " + collision.gameObject.tag);
-            if (tag.Equals("Ball"))
+            if (collision.gameObject.tag.Equals("Ball"))
             {
                 timeThusFar = Time.time - timeStart;
-                Debug.Log("Game over Timer Updated: " + timeThusFar);
+                Debug.Log("Game Over Timer Updated: " + timeThusFar);
                 if (timeThusFar >= timeout)
                 {
                     Debug.Log("Game Over");
                     player.isGameOver = true;
                     gameOver.SetActive(true);
-                } 
+                }
             }
         }
-
-
     }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Ball"))
+        {
+            ballsInZone = Mathf.Max(0, ballsInZone - 1);
+            if (ballsInZone == 0)
+            {
+                Debug.Log("No balls left in zone. Timer reset.");
+                timeThusFar = 0f;
+            }
+        }
+    }
+
 }
