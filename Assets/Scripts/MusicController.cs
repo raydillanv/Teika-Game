@@ -9,6 +9,8 @@ public class MusicController : MonoBehaviour
     public Slider Slider;
     bool Muted = false;
 
+    public AudioClip MusicPlus;
+
     void Awake()
     {
         // We want to make the music audio source persistent across the levels so we dont destroy it on scene change. 
@@ -47,5 +49,13 @@ public class MusicController : MonoBehaviour
     }
 
 
+    public void UpgradeMusic()
+    {
+        if (Source != null)
+        {
+            Source.clip = MusicPlus;
+            Source.Play();
+        }
+    }
 
 }

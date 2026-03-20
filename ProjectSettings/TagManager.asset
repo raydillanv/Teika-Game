@@ -10,6 +10,7 @@ TagManager:
   - Queue
   - ScoreTracker
   - HighScoreText
+  - Music
   layers:
   - Default
   - TransparentFX

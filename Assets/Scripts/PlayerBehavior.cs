@@ -63,6 +63,14 @@ public class PlayerBehavior : MonoBehaviour
     public float dropCooldown = 0.25f;
 
 
+    // Shop sort of idea variables
+    public bool footballMergeUnlocked = false;
+    public int footballUnlockCost = 50;
+
+    public int musicUpgradeCost = 10;
+    public bool musicUpgraded = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -192,5 +200,44 @@ public class PlayerBehavior : MonoBehaviour
         textField.SetText("Score: " + total);
         STRef.UpdateScoreTracker(total);
     }
-    
+
+
+    // Called when the player presses the button to unlock it
+    public void UnlockFootballMerge()
+    {
+        if (!footballMergeUnlocked && total >= footballUnlockCost)
+        {
+            total -= footballUnlockCost;
+            footballMergeUnlocked = true;
+            textField.SetText("Score: " + total);
+            STRef.UpdateScoreTracker(total);
+            Debug.Log("Football merge unlocked!");
+        }
+        else
+        {
+            Debug.Log("Not enough points or already unlocked.");
+        }
+    }
+
+    public void UnlockUpgradedMusic()
+    {
+        if (!musicUpgraded && total >= musicUpgradeCost)
+        {
+            total -= musicUpgradeCost;
+            musicUpgraded = true;
+            textField.SetText("Score: " + total);
+            STRef.UpdateScoreTracker(total);
+
+            GameObject.FindGameObjectWithTag("Music")
+                .GetComponent<MusicController>()
+                .UpgradeMusic();
+
+            Debug.Log("Music upgraded");
+        }
+        else
+        {
+            Debug.Log("Not enough points or already upgraded.");
+        }
+    }
+
 }
